@@ -28,6 +28,8 @@
 #include "defs.hpp"
 #include "sysschedutil.hpp"
 
+template <class T, Type::RingBufferType type, class Enable>
+class RingBufferBase;
 
 /** inline alloc **/
 template < class T >

@@ -20,8 +20,13 @@
 #ifndef RAFTRINGBUFFERINFINITE_TCC
 #define RAFTRINGBUFFERINFINITE_TCC  1
 #include "alloc_traits.tcc"
+#include "fifoabstract.tcc"
+#include "ringbuffertypes.hpp"
 
 //TODO -> fixme
+
+template <class T, Type::RingBufferType type, class Enable>
+class RingBufferBase;
 
 template < class T >
 class RingBufferBase< T, Type::Infinite, 

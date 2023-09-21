@@ -20,8 +20,10 @@
 #ifndef RAFTRINGBUFFERHEAP_ABSTRACT_TCC
 #define RAFTRINGBUFFERHEAP_ABSTRACT_TCC  1
 
-#include "portexception.hpp"
 #include "defs.hpp"
+#include "fifoabstract.tcc"
+#include "portexception.hpp"
+#include "ringbuffertypes.hpp"
 #include "sysschedutil.hpp"
 
 template < class T,  Type::RingBufferType type > 

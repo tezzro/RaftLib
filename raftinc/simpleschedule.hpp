@@ -22,7 +22,9 @@
 #include <vector>
 #include <thread>
 #include <cstdint>
+
 #include "defs.hpp"
+#include "schedule.hpp"
 
 namespace raft{
    class kernel;
