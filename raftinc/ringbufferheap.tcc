@@ -29,6 +29,9 @@
 /** for yield **/
 #include "sysschedutil.hpp"
 
+template <class T, Type::RingBufferType type, class Enable>
+class RingBufferBase;
+
 /** inline alloc **/
 template < class T >
 class RingBufferBase<
@@ -307,7 +310,8 @@ protected:
 #if defined(__aarch64__)
       asm volatile( "dmb ishst" : : : "memory" ); /** memory write barrier **/
 #endif
-       Pointer::inc( buff_ptr->write_pt );
+      asm volatile("" : : : "memory"); /** memory write barrier **/
+      Pointer::inc(buff_ptr->write_pt);
 #if 0       
       if( signal == raft::quit )
       {
@@ -746,6 +750,7 @@ protected:
 #if defined(__aarch64__)
       asm volatile( "dmb ishst" : : : "memory" ); /** memory write barrier **/
 #endif
+       asm volatile("" : : : "memory"); /** memory write barrier **/
        Pointer::inc( buff_ptr->write_pt );
       (this)->datamanager.exitBuffer( dm::push );
    }
@@ -1214,6 +1219,7 @@ protected:
 #if defined(__aarch64__)
       asm volatile( "dmb ishst" : : : "memory" ); /** memory write barrier **/
 #endif
+       asm volatile("" : : : "memory"); /** memory write barrier **/
        Pointer::inc( buff_ptr->write_pt );
 #if 0       
       if( signal == raft::quit )
