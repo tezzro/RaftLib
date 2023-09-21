@@ -25,6 +25,7 @@
 #include <qthread/qthread.hpp>
 #else
 #include <sched.h>
+#include <thread>
 #endif
 #endif /** end if not win **/
 
@@ -46,6 +47,7 @@ static inline void yield()
     sched_yield();
 #endif
 #endif /** end if not win **/
+    std::this_thread::sleep_for(std::chrono::nanoseconds(10));
     return;
 }
 

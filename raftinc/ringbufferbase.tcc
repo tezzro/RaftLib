@@ -48,7 +48,7 @@ namespace raft
  * writes or blocking for space, otherwise blocking will
  * actively spin while waiting.
  */
-#define NICE 1
+// #define NICE 1
 
 template < class T,
            Type::RingBufferType type,
